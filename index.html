@@ -14,7 +14,6 @@
   <!-- Interactive Particle Background Canvas -->
   <canvas id="bgCanvas"></canvas>
   <div class="ambient-glow"></div>
-  <div class="perspective-grid"></div>
 
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -25,7 +24,7 @@
         <span class="brand-badge">v1.0.0</span>
       </a>
       <div class="nav-links">
-        <a href="#invisibility">Invisibility Demo</a>
+        <a href="#invisibility">Invisibility Filter</a>
         <a href="#sandbox">Live Sandbox</a>
         <a href="#keyboard">Virtual Keyboard</a>
         <a href="#themes">Theme Studio</a>
@@ -68,7 +67,7 @@
       <div class="hero-cta-group">
         <a href="https://github.com/Dark-Shadow34/StealthAIBuddy/releases/latest" id="heroDownloadBtn" class="btn-hero-primary">
           <div class="btn-hero-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
           </div>
           <div class="btn-hero-text">
             <span class="btn-hero-main">Download for Windows</span>
@@ -100,7 +99,7 @@
         <div class="stat-divider"></div>
         <div class="stat-card">
           <span class="stat-num">DPAPI</span>
-          <span class="stat-lbl">Military Hardware Key Security</span>
+          <span class="stat-lbl">Hardware Key Security</span>
         </div>
       </div>
     </div>
@@ -119,15 +118,14 @@
         <div class="split-slider-container" id="splitSlider">
           <!-- Left Layer: What You See (With HUD) -->
           <div class="split-layer split-layer-overlay" id="splitOverlay">
-            <div class="split-badge split-badge-left">👁️ YOUR PHYSICAL MONITOR (HUD Visible)</div>
-            <!-- Live Preview of HUD in IDE -->
-            <div style="width: 100%; max-width: 720px; text-align: left;">
-              <div style="font-family: var(--font-mono); font-size: 0.95rem; color: #8fa0c0; line-height: 1.8; margin-bottom: 24px;">
+            <div class="split-fixed-content">
+              <div class="split-badge split-badge-left">👁️ YOUR PHYSICAL MONITOR (HUD Visible)</div>
+              <div style="font-family: var(--font-mono); font-size: 0.92rem; color: #8fa0c0; line-height: 1.7; margin-bottom: 20px;">
                 <span class="code-comment">// Question: Find median of two sorted arrays in O(log(min(m,n)))</span><br>
                 <span class="code-kw">def</span> <span class="code-fn">findMedianSortedArrays</span>(nums1, nums2):<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;A, B = (nums1, nums2) <span class="code-kw">if</span> len(nums1) &lt; len(nums2) <span class="code-kw">else</span> (nums2, nums1)
               </div>
-              <div class="sim-hud hud-theme-emerald" style="position: static; width: 100%; max-width: 480px; box-shadow: 0 16px 40px rgba(0,0,0,0.8);">
+              <div class="sim-hud hud-theme-emerald" style="max-width: 440px;">
                 <div class="sim-hud-header">
                   <div class="sim-hud-status">
                     <span class="sim-hud-dot"></span>
@@ -152,9 +150,9 @@
 
           <!-- Right Layer: What Screen Share Captures (100% Clean) -->
           <div class="split-layer split-layer-base">
-            <div class="split-badge split-badge-right">🛡️ WHAT ZOOM / TEAMS / OBS SEES (100% Clean)</div>
-            <div style="width: 100%; max-width: 720px; text-align: left;">
-              <div style="font-family: var(--font-mono); font-size: 0.95rem; color: #8fa0c0; line-height: 1.8;">
+            <div class="split-fixed-content">
+              <div class="split-badge split-badge-right">🛡️ WHAT ZOOM / TEAMS / OBS SEES (100% Clean)</div>
+              <div style="font-family: var(--font-mono); font-size: 0.92rem; color: #8fa0c0; line-height: 1.7; margin-bottom: 20px;">
                 <span class="code-comment">// Question: Find median of two sorted arrays in O(log(min(m,n)))</span><br>
                 <span class="code-kw">def</span> <span class="code-fn">findMedianSortedArrays</span>(nums1, nums2):<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;A, B = (nums1, nums2) <span class="code-kw">if</span> len(nums1) &lt; len(nums2) <span class="code-kw">else</span> (nums2, nums1)<br>
@@ -162,7 +160,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;half = total // 2<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;l, r = 0, len(A) - 1
               </div>
-              <div style="margin-top: 40px; padding: 20px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; background: rgba(0,0,0,0.3); color: #5e6f8d; font-family: var(--font-mono); font-size: 0.85rem;">
+              <div style="padding: 16px 20px; border: 1px dashed rgba(255,255,255,0.12); border-radius: 10px; background: rgba(0,0,0,0.35); color: #62728f; font-family: var(--font-mono); font-size: 0.82rem; max-width: 440px;">
                 ✓ Window Display Affinity Active (WDA_EXCLUDEFROMCAPTURE)<br>
                 ✓ HUD Window hardware-culled from DWM Compositor<br>
                 ✓ Zero visual artifacts or cursor flickers on stream
@@ -179,7 +177,7 @@
     </div>
   </section>
 
-  <!-- Live Screen Capture Reasoning Sandbox -->
+  <!-- Live Screen Capture Reasoning Sandbox (Clean 2-Column Side-by-Side Grid) -->
   <section id="sandbox" class="section">
     <div class="section-container">
       <div class="section-header">
@@ -199,14 +197,22 @@
           <button id="sandboxScanBtn" class="btn btn-primary">⚡ Scan Screen (F9)</button>
         </div>
 
-        <div class="sandbox-desktop" id="sandboxDesktop">
+        <div class="sandbox-workspace" id="sandboxDesktop">
           <div class="laser-scan-beam" id="laserBeam"></div>
           
-          <div id="sandboxCodeDisplay" class="sim-code-preview">
-            <!-- Dynamic Code Sample inserted via JS -->
+          <!-- Left: Code Editor View -->
+          <div class="code-editor-box">
+            <div class="code-header-dots">
+              <span class="code-dot" style="background:#ff5f56"></span>
+              <span class="code-dot" style="background:#ffbd2e"></span>
+              <span class="code-dot" style="background:#27c93f"></span>
+            </div>
+            <div id="sandboxCodeDisplay">
+              <!-- Inserted dynamically via JS -->
+            </div>
           </div>
 
-          <!-- Live Floating HUD -->
+          <!-- Right: Floating Live HUD -->
           <div class="sim-hud hud-theme-emerald" id="sandboxHud">
             <div class="sim-hud-header">
               <div class="sim-hud-status">
@@ -227,7 +233,7 @@
                 <li>Press <b>[F9]</b> or <b>[Ctrl+Alt+S]</b> to scan & solve active screen</li>
                 <li>Press <b>[Esc]</b> for instant panic hide</li>
                 <li>Press <b>[Ctrl+Alt+O]</b> to open Control Center</li>
-                <li>Drag HUD header to reposition freely</li>
+                <li>Zero lag, sub-second reasoning stream</li>
               </ul>
             </div>
             <div class="sim-hud-footer">
@@ -241,7 +247,7 @@
   </section>
 
   <!-- Interactive Virtual Keyboard Playground -->
-  <section id="keyboard" class="section keyboard-section">
+  <section id="keyboard" class="section">
     <div class="section-container">
       <div class="section-header">
         <span class="section-tag">HARDWARE-ACCELERATED KEYBOARD</span>
