@@ -1,34 +1,10 @@
-# ── Build Artifacts ───────────────────────────────────────────────
-dist/
-build/
-*.spec
-*.pkg
-
-# ── Python Cache ──────────────────────────────────────────────────
-__pycache__/
+*.py
 *.pyc
 *.pyo
 *.pyd
-.Python
-
-# ── Config (contains encrypted API keys — never commit) ───────────
+__pycache__/
+stealth_buddy/
+tools/
+tests/
 config.json
-*.json
-!requirements.txt
-
-# ── Logs & Temp ───────────────────────────────────────────────────
-*.log
-*.tmp
-*.bak
-
-# ── IDE & OS ──────────────────────────────────────────────────────
-.vscode/
-.idea/
-*.swp
-Thumbs.db
-.DS_Store
-
-# ── Virtual Environments ──────────────────────────────────────────
-venv/
-env/
-.env/
+*.spec
