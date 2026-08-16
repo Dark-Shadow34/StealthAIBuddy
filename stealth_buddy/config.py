@@ -243,6 +243,8 @@ DEFAULT_CONFIG: Dict[str, Any] = {
     "window_title_mask": "",
     "alttab_hide": False,
     "taskbar_hide": True,
+    "license_key": "",
+    "license_tier": "",
 }
 
 PROMPT_PRESETS = {

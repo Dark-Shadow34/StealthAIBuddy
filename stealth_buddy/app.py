@@ -33,10 +33,11 @@ class AIWorkerThread(QThread):
 
 
 class StealthBuddyApp(QObject):
-    def __init__(self, q_app: QApplication):
+    def __init__(self, q_app: QApplication, config_mgr: Optional[ConfigManager] = None, license_mgr=None):
         super().__init__()
         self.q_app = q_app
-        self.config = ConfigManager()
+        self.config = config_mgr or ConfigManager()
+        self.license_mgr = license_mgr
         self.capture_engine = ScreenCaptureEngine()
         self.ai_engine = AIEngine(self.config)
 
