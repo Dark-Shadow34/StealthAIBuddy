@@ -7,9 +7,22 @@
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PySide6](https://img.shields.io/badge/PySide6-Qt6-41CD52?style=for-the-badge&logo=qt&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D4?style=for-the-badge&logo=windows&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-6366f1?style=for-the-badge)
+![License](https://img.shields.io/badge/License-Proprietary-ff4d4d?style=for-the-badge)
 
 </div>
+
+---
+
+## 📸 Screenshots
+
+### Control Center — AI & API Key Setup
+![Settings UI](docs/screenshots/settings_ai.jpg)
+
+### Stealth HUD Overlay — Live AI Answer
+![HUD Overlay](docs/screenshots/overlay_hud.jpg)
+
+### Virtual Keyboard — Hotkey Binding
+![Keyboard Binding](docs/screenshots/keyboard_binding.jpg)
 
 ---
 
@@ -132,7 +145,7 @@ keyboard>=0.13
 
 ## 📄 License
 
-MIT — see [LICENSE](LICENSE)
+Copyright (c) 2026 StealthAI Buddy. All Rights Reserved. — see [LICENSE](LICENSE)
 
 ---
 
