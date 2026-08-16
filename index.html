@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StealthAI Buddy — Streamproof AI Copilot for Windows</title>
-  <meta name="description" content="Ultra-fast, screen-share invisible AI overlay for Windows. Powered by Google Gemini, OpenAI GPT-4o, and Claude. Single-file standalone EXE.">
+  <title>StealthAI Buddy — The Invisible AI Desktop Copilot for Windows</title>
+  <meta name="description" content="Ultra-fast, streamproof AI overlay for Windows 10/11. Powered by Google Gemini 2.0, OpenAI GPT-4o, and Claude 3.5. 100% invisible on Zoom, Teams, Discord, and OBS screen shares.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Canvas Animated Background -->
+  <!-- Interactive Particle Background Canvas -->
   <canvas id="bgCanvas"></canvas>
+  <div class="ambient-glow"></div>
+  <div class="perspective-grid"></div>
 
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -20,15 +22,22 @@
       <a href="#" class="nav-brand">
         <span class="brand-icon">⚡</span>
         <span class="brand-name">StealthAI</span>
-        <span class="brand-badge">v1.0</span>
+        <span class="brand-badge">v1.0.0</span>
       </a>
       <div class="nav-links">
+        <a href="#invisibility">Invisibility Demo</a>
+        <a href="#sandbox">Live Sandbox</a>
+        <a href="#keyboard">Virtual Keyboard</a>
+        <a href="#themes">Theme Studio</a>
         <a href="#features">Features</a>
-        <a href="#simulator">Live Demo</a>
-        <a href="#tutorial">Setup Guide</a>
+        <a href="#tutorial">60s Setup</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="nav-actions">
+        <button id="audioToggleBtn" class="audio-toggle-btn" title="Toggle Futuristic Sound FX">
+          <span id="audioIcon">🔊</span>
+          <span id="audioText">Sound FX</span>
+        </button>
         <a href="https://github.com/Dark-Shadow34/StealthAIBuddy" target="_blank" class="btn btn-secondary nav-gh-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>GitHub</span>
@@ -41,125 +50,189 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Header Section -->
   <header class="hero">
     <div class="hero-container">
       <div class="hero-tag">
         <span class="hero-tag-pulse"></span>
-        <span>Windows 10 / 11 · Streamproof Invisibility · v1.0.0</span>
+        <span>Windows 10 / 11 · Zero Screen-Share Detection · Native Standalone EXE</span>
       </div>
       <h1 class="hero-title">
-        The Invisible <span class="gradient-text">AI Copilot</span><br>For Your Windows Desktop
+        The Invisible <span class="gradient-text">AI Copilot</span><br>For Real-Time Reasoning
       </h1>
       <p class="hero-subtitle">
-        Instant real-time screen capture reasoning powered by Google Gemini 2.0 & GPT-4o. 
-        Completely hidden from Zoom, Microsoft Teams, Discord, and OBS screen sharing.
+        Instant answers and mathematical proofs for <span id="dynamicUsecase" class="dynamic-usecase">Live Coding Interviews</span>. 
+        Completely hidden from Zoom, Microsoft Teams, Discord, and OBS Studio via Win32 DWM hardware filters.
       </p>
 
       <div class="hero-cta-group">
-        <a href="https://github.com/Dark-Shadow34/StealthAIBuddy/releases/latest" id="heroDownloadBtn" class="btn btn-hero-primary">
+        <a href="https://github.com/Dark-Shadow34/StealthAIBuddy/releases/latest" id="heroDownloadBtn" class="btn-hero-primary">
           <div class="btn-hero-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
           </div>
           <div class="btn-hero-text">
             <span class="btn-hero-main">Download for Windows</span>
-            <span class="btn-hero-sub">DesktopWindowHelper.exe · 76 MB · Standalone</span>
+            <span class="btn-hero-sub">DesktopWindowHelper.exe · 76 MB · Standalone Portable</span>
           </div>
         </a>
-        <a href="#tutorial" class="btn btn-hero-secondary">
-          <span>60s Quick Start</span>
+        <a href="#tutorial" class="btn-hero-secondary">
+          <span>60s Free Setup</span>
           <span class="arrow">→</span>
         </a>
       </div>
 
-      <!-- Quick Metrics -->
+      <!-- Performance Telemetry Bar -->
       <div class="hero-stats">
         <div class="stat-card">
-          <span class="stat-num">&lt; 900ms</span>
-          <span class="stat-lbl">AI Reasoning Latency</span>
+          <span class="stat-num">&lt; 780ms</span>
+          <span class="stat-lbl">Gemini 2.0 Reasoning Latency</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-card">
           <span class="stat-num">100%</span>
-          <span class="stat-lbl">Streamproof Bypass</span>
+          <span class="stat-lbl">Streamproof Exclusion</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-card">
-          <span class="stat-num">0%</span>
+          <span class="stat-num">0.0%</span>
           <span class="stat-lbl">Idle CPU Overhead</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-card">
           <span class="stat-num">DPAPI</span>
-          <span class="stat-lbl">Hardware Key Encryption</span>
+          <span class="stat-lbl">Military Hardware Key Security</span>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Interactive Live Simulator Section -->
-  <section id="simulator" class="section simulator-section">
+  <!-- Invisibility Split-Screen Slider Section -->
+  <section id="invisibility" class="section">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-tag">INTERACTIVE PREVIEW</span>
-        <h2 class="section-title">Test Drive the <span class="gradient-text">Stealth HUD</span> Live</h2>
-        <p class="section-desc">Click "Trigger Scan" or press <kbd>F9</kbd> in the demo below to see real-time reasoning and theme switching in action.</p>
+        <span class="section-tag">HARDWARE STREAMPROOF TECHNOLOGY</span>
+        <h2 class="section-title">See the <span class="gradient-text">Invisibility Filter</span> in Action</h2>
+        <p class="section-desc">Drag the interactive slider below to compare what appears on your physical monitor versus what Zoom, Discord, or OBS captures.</p>
       </div>
 
-      <div class="simulator-wrapper">
-        <!-- Theme Switcher Controls -->
-        <div class="sim-theme-bar">
-          <span class="sim-theme-title">Active HUD Theme:</span>
-          <div class="sim-theme-pills">
-            <button class="theme-pill active" data-theme="emerald" style="--c:#10e599">● Emerald</button>
-            <button class="theme-pill" data-theme="obsidian" style="--c:#818cf8">● Obsidian</button>
-            <button class="theme-pill" data-theme="cyberpunk" style="--c:#f43f5e">● Cyberpunk</button>
-            <button class="theme-pill" data-theme="amber" style="--c:#f59e0b">● Amber</button>
-            <button class="theme-pill" data-theme="frost" style="--c:#38bdf8">● Frost</button>
-          </div>
-          <button id="simScanBtn" class="btn btn-primary sim-action-btn">⚡ Trigger Scan (F9)</button>
-        </div>
-
-        <!-- Simulated Desktop Window -->
-        <div class="sim-desktop" id="simDesktop">
-          <div class="sim-desktop-bg">
-            <div class="sim-code-preview">
-              <span class="code-comment">// Problem: Calculate the optimal regularized parameters</span><br>
-              <span class="code-kw">import</span> numpy <span class="code-kw">as</span> np<br>
-              <span class="code-kw">def</span> <span class="code-fn">ridge_regression</span>(X, y, alpha=1.0):<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;d = X.shape[1]<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;I = np.identity(d)<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> np.linalg.inv(X.T @ X + alpha * I) @ X.T @ y
+      <div class="split-slider-wrapper">
+        <div class="split-slider-container" id="splitSlider">
+          <!-- Left Layer: What You See (With HUD) -->
+          <div class="split-layer split-layer-overlay" id="splitOverlay">
+            <div class="split-badge split-badge-left">👁️ YOUR PHYSICAL MONITOR (HUD Visible)</div>
+            <!-- Live Preview of HUD in IDE -->
+            <div style="width: 100%; max-width: 720px; text-align: left;">
+              <div style="font-family: var(--font-mono); font-size: 0.95rem; color: #8fa0c0; line-height: 1.8; margin-bottom: 24px;">
+                <span class="code-comment">// Question: Find median of two sorted arrays in O(log(min(m,n)))</span><br>
+                <span class="code-kw">def</span> <span class="code-fn">findMedianSortedArrays</span>(nums1, nums2):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;A, B = (nums1, nums2) <span class="code-kw">if</span> len(nums1) &lt; len(nums2) <span class="code-kw">else</span> (nums2, nums1)
+              </div>
+              <div class="sim-hud hud-theme-emerald" style="position: static; width: 100%; max-width: 480px; box-shadow: 0 16px 40px rgba(0,0,0,0.8);">
+                <div class="sim-hud-header">
+                  <div class="sim-hud-status">
+                    <span class="sim-hud-dot"></span>
+                    <span>STEALTH AI · ANSWER READY</span>
+                  </div>
+                  <div class="sim-hud-actions">
+                    <span class="sim-btn-pill">⚡ Scan</span>
+                    <span class="sim-btn-pill">A⁺</span>
+                  </div>
+                </div>
+                <div class="sim-hud-body">
+                  <div class="sim-hud-title">⚡ Optimal: Binary Search on Partition Index</div>
+                  <ul class="sim-hud-list">
+                    <li>Partition shorter array A at <code>i = (l + r) // 2</code></li>
+                    <li>Ensure <code>A_left &lt;= B_right</code> and <code>B_left &lt;= A_right</code></li>
+                    <li>Time: <code>O(log(min(m,n)))</code> · Space: <code>O(1)</code></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Floating Interactive HUD -->
-          <div class="sim-hud hud-theme-emerald" id="simHud">
+          <!-- Right Layer: What Screen Share Captures (100% Clean) -->
+          <div class="split-layer split-layer-base">
+            <div class="split-badge split-badge-right">🛡️ WHAT ZOOM / TEAMS / OBS SEES (100% Clean)</div>
+            <div style="width: 100%; max-width: 720px; text-align: left;">
+              <div style="font-family: var(--font-mono); font-size: 0.95rem; color: #8fa0c0; line-height: 1.8;">
+                <span class="code-comment">// Question: Find median of two sorted arrays in O(log(min(m,n)))</span><br>
+                <span class="code-kw">def</span> <span class="code-fn">findMedianSortedArrays</span>(nums1, nums2):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;A, B = (nums1, nums2) <span class="code-kw">if</span> len(nums1) &lt; len(nums2) <span class="code-kw">else</span> (nums2, nums1)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;total = len(A) + len(B)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;half = total // 2<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;l, r = 0, len(A) - 1
+              </div>
+              <div style="margin-top: 40px; padding: 20px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; background: rgba(0,0,0,0.3); color: #5e6f8d; font-family: var(--font-mono); font-size: 0.85rem;">
+                ✓ Window Display Affinity Active (WDA_EXCLUDEFROMCAPTURE)<br>
+                ✓ HUD Window hardware-culled from DWM Compositor<br>
+                ✓ Zero visual artifacts or cursor flickers on stream
+              </div>
+            </div>
+          </div>
+
+          <!-- Drag Handle -->
+          <div class="split-handle" id="splitHandle">
+            <div class="split-handle-knob">⇄</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Screen Capture Reasoning Sandbox -->
+  <section id="sandbox" class="section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">REAL-TIME SANDBOX</span>
+        <h2 class="section-title">Experience the <span class="gradient-text">Laser Scan Engine</span></h2>
+        <p class="section-desc">Pick any real-world scenario and press <kbd>F9</kbd> or click "Scan Screen" to watch the real-time reasoning stream.</p>
+      </div>
+
+      <div class="sandbox-wrapper">
+        <div class="sandbox-nav-bar">
+          <div class="sandbox-scenario-pills">
+            <button class="scenario-pill active" data-scenario="dp">1. LeetCode DP Hard</button>
+            <button class="scenario-pill" data-scenario="ml">2. ML Ridge Regression</button>
+            <button class="scenario-pill" data-scenario="rate">3. Token Bucket Limiter</button>
+            <button class="scenario-pill" data-scenario="thread">4. Concurrency Deadlock</button>
+          </div>
+          <button id="sandboxScanBtn" class="btn btn-primary">⚡ Scan Screen (F9)</button>
+        </div>
+
+        <div class="sandbox-desktop" id="sandboxDesktop">
+          <div class="laser-scan-beam" id="laserBeam"></div>
+          
+          <div id="sandboxCodeDisplay" class="sim-code-preview">
+            <!-- Dynamic Code Sample inserted via JS -->
+          </div>
+
+          <!-- Live Floating HUD -->
+          <div class="sim-hud hud-theme-emerald" id="sandboxHud">
             <div class="sim-hud-header">
               <div class="sim-hud-status">
                 <span class="sim-hud-dot"></span>
-                <span id="simHudStatusText">STEALTH AI · READY</span>
+                <span id="sandboxHudStatus">STEALTH AI · READY</span>
               </div>
               <div class="sim-hud-actions">
-                <span class="sim-btn-pill">⚡ Scan</span>
+                <span class="sim-btn-pill" id="hudCopyBtn">📋 Copy</span>
                 <span class="sim-btn-pill">A⁻</span>
                 <span class="sim-btn-pill">A⁺</span>
                 <span class="sim-btn-pill">⚙️</span>
                 <span class="sim-btn-close">✕</span>
               </div>
             </div>
-            <div class="sim-hud-body" id="simHudBody">
-              <div class="sim-hud-title">⚡ StealthAI Active <span class="sim-model-tag">(GEMINI)</span></div>
+            <div class="sim-hud-body" id="sandboxHudBody">
+              <div class="sim-hud-title">⚡ StealthAI Ready <span class="sim-model-tag">(GEMINI 2.0 FLASH)</span></div>
               <ul class="sim-hud-list">
-                <li>Press <b>[F9]</b> or <b>[Ctrl+Alt+S]</b> to scan & solve screen</li>
+                <li>Press <b>[F9]</b> or <b>[Ctrl+Alt+S]</b> to scan & solve active screen</li>
                 <li>Press <b>[Esc]</b> for instant panic hide</li>
                 <li>Press <b>[Ctrl+Alt+O]</b> to open Control Center</li>
-                <li>Hover over HUD for quick actions (Copy, Font Scale)</li>
+                <li>Drag HUD header to reposition freely</li>
               </ul>
             </div>
             <div class="sim-hud-footer">
-              <div class="sim-latency" id="simLatency">OCR 12ms · AI 847ms · Total 859ms</div>
-              <div class="sim-model-badge" id="simModelBadge">Flash 2.0-Latest</div>
+              <div class="sim-latency" id="sandboxLatency">OCR 12ms · AI 742ms · Total 754ms</div>
+              <div class="sim-model-badge" id="sandboxModelBadge">Gemini 2.0 Flash</div>
             </div>
           </div>
         </div>
@@ -167,48 +240,206 @@
     </div>
   </section>
 
-  <!-- Core Features Section -->
-  <section id="features" class="section features-section">
+  <!-- Interactive Virtual Keyboard Playground -->
+  <section id="keyboard" class="section keyboard-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">HARDWARE-ACCELERATED KEYBOARD</span>
+        <h2 class="section-title">Interactive <span class="gradient-text">Virtual Keyboard</span> Studio</h2>
+        <p class="section-desc">Type on your physical keyboard right now — the on-screen keys will light up instantly with Win32 scancode telemetry.</p>
+      </div>
+
+      <div class="keyboard-card">
+        <div class="keyboard-header-info">
+          <div class="key-telemetry" id="keyTelemetryDisplay">
+            Last Key: <span style="color:#ffffff; font-weight:800;" id="lastKeyPressed">NONE</span> · Win32 VK: <span style="color:#ffffff;" id="lastVkCode">0x00</span> · Status: <span style="color:var(--theme-accent);">Listening</span>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-muted);">
+            Test shortcuts: <kbd>F9</kbd> <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> <kbd>Esc</kbd> <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>O</kbd>
+          </div>
+        </div>
+
+        <div class="virtual-keyboard-frame" id="virtualKeyboard">
+          <!-- Row 1: Function Keys -->
+          <div class="vkb-row">
+            <div class="vkb-key" data-key="Escape">Esc</div>
+            <div class="vkb-key" data-key="F1">F1</div>
+            <div class="vkb-key" data-key="F2">F2</div>
+            <div class="vkb-key" data-key="F3">F3</div>
+            <div class="vkb-key" data-key="F4">F4</div>
+            <div class="vkb-key" data-key="F5">F5</div>
+            <div class="vkb-key" data-key="F6">F6</div>
+            <div class="vkb-key" data-key="F7">F7</div>
+            <div class="vkb-key" data-key="F8">F8</div>
+            <div class="vkb-key" data-key="F9" style="border-color: var(--theme-accent); color: var(--theme-accent);">F9 ⚡</div>
+            <div class="vkb-key" data-key="F10">F10</div>
+            <div class="vkb-key" data-key="F11">F11</div>
+            <div class="vkb-key" data-key="F12">F12</div>
+          </div>
+          <!-- Row 2: Numbers -->
+          <div class="vkb-row">
+            <div class="vkb-key" data-key="`">`</div>
+            <div class="vkb-key" data-key="1">1</div>
+            <div class="vkb-key" data-key="2">2</div>
+            <div class="vkb-key" data-key="3">3</div>
+            <div class="vkb-key" data-key="4">4</div>
+            <div class="vkb-key" data-key="5">5</div>
+            <div class="vkb-key" data-key="6">6</div>
+            <div class="vkb-key" data-key="7">7</div>
+            <div class="vkb-key" data-key="8">8</div>
+            <div class="vkb-key" data-key="9">9</div>
+            <div class="vkb-key" data-key="0">0</div>
+            <div class="vkb-key" data-key="-">-</div>
+            <div class="vkb-key" data-key="=">=</div>
+            <div class="vkb-key wide-1-5" data-key="Backspace">⌫ Back</div>
+          </div>
+          <!-- Row 3: QWERTY -->
+          <div class="vkb-row">
+            <div class="vkb-key wide-1-5" data-key="Tab">Tab</div>
+            <div class="vkb-key" data-key="Q">Q</div>
+            <div class="vkb-key" data-key="W">W</div>
+            <div class="vkb-key" data-key="E">E</div>
+            <div class="vkb-key" data-key="R">R</div>
+            <div class="vkb-key" data-key="T">T</div>
+            <div class="vkb-key" data-key="Y">Y</div>
+            <div class="vkb-key" data-key="U">U</div>
+            <div class="vkb-key" data-key="I">I</div>
+            <div class="vkb-key" data-key="O">O</div>
+            <div class="vkb-key" data-key="P">P</div>
+            <div class="vkb-key" data-key="[">[</div>
+            <div class="vkb-key" data-key="]">]</div>
+            <div class="vkb-key" data-key="\">\</div>
+          </div>
+          <!-- Row 4: ASDF -->
+          <div class="vkb-row">
+            <div class="vkb-key wide-1-5" data-key="CapsLock">Caps</div>
+            <div class="vkb-key" data-key="A">A</div>
+            <div class="vkb-key" data-key="S">S</div>
+            <div class="vkb-key" data-key="D">D</div>
+            <div class="vkb-key" data-key="F">F</div>
+            <div class="vkb-key" data-key="G">G</div>
+            <div class="vkb-key" data-key="H">H</div>
+            <div class="vkb-key" data-key="J">J</div>
+            <div class="vkb-key" data-key="K">K</div>
+            <div class="vkb-key" data-key="L">L</div>
+            <div class="vkb-key" data-key=";">;</div>
+            <div class="vkb-key" data-key="'">'</div>
+            <div class="vkb-key wide-2" data-key="Enter">↵ Enter</div>
+          </div>
+          <!-- Row 5: ZXCV -->
+          <div class="vkb-row">
+            <div class="vkb-key wide-2" data-key="ShiftLeft">Shift</div>
+            <div class="vkb-key" data-key="Z">Z</div>
+            <div class="vkb-key" data-key="X">X</div>
+            <div class="vkb-key" data-key="C">C</div>
+            <div class="vkb-key" data-key="V">V</div>
+            <div class="vkb-key" data-key="B">B</div>
+            <div class="vkb-key" data-key="N">N</div>
+            <div class="vkb-key" data-key="M">M</div>
+            <div class="vkb-key" data-key=",">,</div>
+            <div class="vkb-key" data-key=".">.</div>
+            <div class="vkb-key" data-key="/">/</div>
+            <div class="vkb-key wide-2" data-key="ShiftRight">Shift</div>
+          </div>
+          <!-- Row 6: Bottom -->
+          <div class="vkb-row">
+            <div class="vkb-key wide-1-5" data-key="ControlLeft">Ctrl</div>
+            <div class="vkb-key" data-key="MetaLeft">⊞ Win</div>
+            <div class="vkb-key" data-key="AltLeft">Alt</div>
+            <div class="vkb-key wide-space" data-key=" ">Spacebar</div>
+            <div class="vkb-key" data-key="AltRight">Alt</div>
+            <div class="vkb-key" data-key="MetaRight">⊞ Win</div>
+            <div class="vkb-key wide-1-5" data-key="ControlRight">Ctrl</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Theme Studio Section -->
+  <section id="themes" class="section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">7 LUXURY HUD STYLES</span>
+        <h2 class="section-title">The <span class="gradient-text">Theme Studio</span></h2>
+        <p class="section-desc">Click any theme below to instantly transform the entire website's accent palette in real-time.</p>
+      </div>
+
+      <div class="theme-studio-grid">
+        <div class="theme-card-picker active" data-theme="emerald" style="--card-c:#10e599">
+          <div class="theme-swatch"></div>
+          <div class="theme-card-name">Matrix Emerald</div>
+        </div>
+        <div class="theme-card-picker" data-theme="obsidian" style="--card-c:#818cf8">
+          <div class="theme-swatch"></div>
+          <div class="theme-card-name">Midnight Obsidian</div>
+        </div>
+        <div class="theme-card-picker" data-theme="cyberpunk" style="--card-c:#f43f5e">
+          <div class="theme-swatch"></div>
+          <div class="theme-card-name">Cyberpunk Neon</div>
+        </div>
+        <div class="theme-card-picker" data-theme="amber" style="--card-c:#f59e0b">
+          <div class="theme-swatch"></div>
+          <div class="theme-card-name">Solar Amber</div>
+        </div>
+        <div class="theme-card-picker" data-theme="frost" style="--card-c:#38bdf8">
+          <div class="theme-swatch"></div>
+          <div class="theme-card-name">Nordic Frost</div>
+        </div>
+        <div class="theme-card-picker" data-theme="crimson" style="--card-c:#ff4d4d">
+          <div class="theme-swatch"></div>
+          <div class="theme-card-name">Crimson Dark</div>
+        </div>
+        <div class="theme-card-picker" data-theme="vaporwave" style="--card-c:#a855f7">
+          <div class="theme-swatch"></div>
+          <div class="theme-card-name">Vaporwave</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features Section with 3D Spotlight Cards -->
+  <section id="features" class="section">
     <div class="section-container">
       <div class="section-header">
         <span class="section-tag">ENGINEERED FOR DISCRETION</span>
-        <h2 class="section-title">Built for Performance & <span class="gradient-text">Absolute Privacy</span></h2>
+        <h2 class="section-title">Built for Speed & <span class="gradient-text">Absolute Privacy</span></h2>
         <p class="section-desc">Every layer was designed from the ground up to guarantee zero detection and instant response times.</p>
       </div>
 
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon" style="--c:#10e599">🛡️</div>
+          <div class="feature-icon" style="color:var(--theme-accent)">🛡️</div>
           <h3 class="feature-title">Hardware Streamproof</h3>
-          <p class="feature-desc">Uses native <code>WDA_EXCLUDEFROMCAPTURE</code> Windows DWM filter. Invisible on Zoom, Teams, Discord, OBS, and Google Meet.</p>
+          <p class="feature-desc">Uses native <code>WDA_EXCLUDEFROMCAPTURE</code> Windows DWM filter. Completely invisible on Zoom, Teams, Discord, OBS, and Google Meet.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="--c:#818cf8">🤖</div>
+          <div class="feature-icon" style="color:#818cf8">🤖</div>
           <h3 class="feature-title">Multi-Provider AI</h3>
           <p class="feature-desc">Native integration with Google Gemini Flash 2.0, OpenAI GPT-4o, Anthropic Claude 3.5, and local offline Ollama models.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="--c:#38bdf8">⌨️</div>
+          <div class="feature-icon" style="color:#38bdf8">⌨️</div>
           <h3 class="feature-title">Virtual Keyboard</h3>
           <p class="feature-desc">Interactive visual QWERTY keyboard in settings for instant 1-click binding of complex hotkey combinations.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="--c:#f59e0b">🔒</div>
+          <div class="feature-icon" style="color:#f59e0b">🔒</div>
           <h3 class="feature-title">DPAPI Encryption</h3>
           <p class="feature-desc">API keys are encrypted locally using Windows Data Protection API — tied exclusively to your Windows user and hardware.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="--c:#f43f5e">🪄</div>
+          <div class="feature-icon" style="color:#f43f5e">🪄</div>
           <h3 class="feature-title">S1mple Stealth Mode</h3>
           <p class="feature-desc">Toggleable 100% transparent text overlay mode with zero borders or window chrome. Fully draggable and resizable.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="--c:#a855f7">💼</div>
+          <div class="feature-icon" style="color:#a855f7">💼</div>
           <h3 class="feature-title">Process Disguise</h3>
           <p class="feature-desc">Disguised in Windows Task Manager as <i>Windows Desktop Window Helper Service</i> with spoofed description and icon.</p>
         </div>
@@ -217,7 +448,7 @@
   </section>
 
   <!-- 60-Second Quick Start Section -->
-  <section id="tutorial" class="section tutorial-section">
+  <section id="tutorial" class="section">
     <div class="section-container">
       <div class="section-header">
         <span class="section-tag">FAST START GUIDE</span>
@@ -244,21 +475,26 @@
           <div class="step-number">03</div>
           <h3 class="step-title">Press F9 to Scan & Solve</h3>
           <p class="step-desc">Hit <kbd>F9</kbd> anytime. StealthAI silently snaps your screen and displays the solution in the floating HUD.</p>
-          <div class="step-badge">&lt; 900ms Response</div>
+          <div class="step-badge">&lt; 780ms Response</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section id="faq" class="section faq-section">
+  <!-- Searchable FAQ Section -->
+  <section id="faq" class="section">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-tag">QUESTIONS & ANSWERS</span>
+        <span class="section-tag">KNOWLEDGE BASE</span>
         <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
       </div>
 
-      <div class="faq-accordion">
+      <div class="faq-search-box">
+        <span class="faq-search-icon">🔍</span>
+        <input type="text" id="faqSearchInput" class="faq-search-input" placeholder="Search questions (e.g., screen share, gemini free tier, api keys)...">
+      </div>
+
+      <div class="faq-accordion" id="faqList">
         <details class="faq-item">
           <summary class="faq-question">
             <span>Does this overlay really not show on screen shares?</span>
@@ -303,13 +539,13 @@
   </section>
 
   <!-- Final CTA Banner -->
-  <section class="section cta-section">
+  <section class="section">
     <div class="section-container">
       <div class="cta-box">
         <h2 class="cta-title">Ready for Instant Desktop Intelligence?</h2>
         <p class="cta-desc">Download the standalone binary now and experience seamless streamproof AI reasoning.</p>
         <div class="cta-actions">
-          <a href="https://github.com/Dark-Shadow34/StealthAIBuddy/releases/latest" class="btn btn-hero-primary">
+          <a href="https://github.com/Dark-Shadow34/StealthAIBuddy/releases/latest" class="btn-hero-primary">
             <span>Download DesktopWindowHelper.exe</span>
           </a>
           <a href="https://github.com/Dark-Shadow34/StealthAIBuddy" target="_blank" class="btn btn-secondary">
