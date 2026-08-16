@@ -2,127 +2,214 @@
 
 # ⚡ StealthAI Buddy
 
-**Ultra-Fast, Screen-Share Invisible AI Overlay for Windows — Powered by Google Gemini, OpenAI & Claude.**
+### *Ultra-Low-Latency, Streamproof AI Copilot for Windows*
 
-![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PySide6](https://img.shields.io/badge/PySide6-Qt6-41CD52?style=for-the-badge&logo=qt&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D4?style=for-the-badge&logo=windows&logoColor=white)
-![License](https://img.shields.io/badge/License-Proprietary-ff4d4d?style=for-the-badge)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![PySide6](https://img.shields.io/badge/PySide6-Qt6%20GUI-41CD52?style=for-the-badge&logo=qt&logoColor=white)](https://pypi.org/project/PySide6/)
+[![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://microsoft.com/windows)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-2.0%20Flash-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com)
+[![Anthropic Claude](https://img.shields.io/badge/Claude-3.5%20Sonnet-D97706?style=for-the-badge&logo=anthropic&logoColor=white)](https://anthropic.com)
+[![License](https://img.shields.io/badge/License-Proprietary-ff4d4d?style=for-the-badge)](LICENSE)
 
-</div>
+<br />
+
+> **StealthAI Buddy** is a luxury, invisible overlay HUD engineered for developers and professionals. It silently captures your screen, reasons with state-of-the-art vision models (Gemini, GPT-4o, Claude), and displays answers in real time without appearing on Zoom, Microsoft Teams, Discord, or OBS screen shares.
+
+<br />
 
 ---
 
-## 📸 Real Software Preview
+</div>
+
+## 📸 Live Software Interface
 
 <div align="center">
-  <img src="docs/screenshots/stealth_hud.png" alt="StealthAI HUD Overlay" width="560" />
-  <p><em>Real live screenshot of StealthAI Buddy HUD floating invisibly on screen in Matrix Emerald theme.</em></p>
+
+| ⚡ Floating Stealth HUD Overlay | ⚙️ Control Center Settings |
+| :---: | :---: |
+| <img src="docs/screenshots/stealth_hud.png" width="460" alt="Stealth HUD" /> | <img src="docs/screenshots/settings_window.png" width="460" alt="Control Center" /> |
+| *Matrix Emerald Theme — Borderless floating text* | *DPAPI encrypted settings, themes & virtual keyboard* |
+
 </div>
 
 ---
 
-## ⚡ Quick Start Tutorial (100% Free Gemini API in 60s)
+## ⚡ 60-Second Quick Start (100% Free Gemini API)
 
-Follow these 4 simple steps to get started with zero cost:
+```mermaid
+graph LR
+    A[🔑 Get Free API Key] --> B[⚡ Auto-Configure]
+    B --> C[🎯 Press F9 to Scan]
+    C --> D[💡 Instant AI Solution]
+```
 
-### 1. Get Your Free Gemini API Key (No Credit Card Required)
-1. Go to **[Google AI Studio](https://aistudio.google.com/app/apikey)**.
-2. Sign in with any Google account.
-3. Click the blue **"Create API key"** (or **"Get API key"**) button.
-4. Select or create a project and click **"Create key in new project"**.
-5. Copy your new API key (starts with `AIzaSy...`).
+### Step 1: Get Your Free Gemini Key *(No Credit Card Needed)*
+1. Head over to **[Google AI Studio (aistudio.google.com)](https://aistudio.google.com/app/apikey)**.
+2. Sign in with your Google account.
+3. Click **"Create API key"** → **"Create key in new project"**.
+4. Copy your key (starts with `AIzaSy...`).
 
-> 💡 **Tip:** Google gives you a generous free tier for Gemini Flash models (15 RPM / 1 million tokens per minute) which is completely free forever.
-
----
-
-### 2. Configure StealthAI Buddy
-1. Run `DesktopWindowHelper.exe` (or `python main.py`).
-2. Press **`Ctrl + Alt + O`** on your keyboard (or click the ⚙️ gear icon on the HUD) to open the **Control Center**.
-3. In the **Universal API Key** box, paste your key (`AIzaSy...`).
-4. Click **`⚡ Auto-Configure`**:
-   - StealthAI will automatically verify your key against Google's API.
-   - It discovers all available models and auto-selects the fastest ultra-low-latency model (e.g. `gemini-2.0-flash` or `gemini-2.5-flash-lite`).
-   - Your key is immediately DPAPI encrypted in local storage.
+### Step 2: Auto-Configure StealthAI
+1. Run **`DesktopWindowHelper.exe`** (or `python main.py`).
+2. Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>O</kbd> to open the **Control Center**.
+3. Paste your key in the **Universal API Key** field.
+4. Click **`⚡ Auto-Configure`** — StealthAI auto-validates the connection, discovers active models, and saves it with DPAPI encryption.
 5. Click **`💾 Save & Apply`**.
 
----
-
-### 3. Start Scanning & Solving
-- **Instant Scan:** Press **`F9`** or **`Ctrl + Alt + S`** anytime.
-  - The HUD immediately snaps a silent snapshot of your active display.
-  - Returns the solution/reasoning directly in the stealth overlay.
-- **Panic Hide:** Press **`Esc`** at any moment to instantly vanish the overlay.
-- **Repeat Last Answer:** Press **`Ctrl + Alt + R`** to bring back the last cached solution without making a new API call.
-- **Rebind Hotkeys:** Go to **Settings (Ctrl+Alt+O) → Keys** and click on any key on the interactive virtual keyboard to bind custom keys.
+### Step 3: Scan Anything Instantly
+- Press <kbd>F9</kbd> anywhere on Windows to analyze your current screen and display the answer!
 
 ---
 
-## ✨ Core Features
+## 🌟 Key Highlights & Features
 
-- **🛡 Streamproof Invisibility** — Invisible to Zoom, Microsoft Teams, Discord, OBS Studio, Slack, and Google Meet via hardware-level `WDA_EXCLUDEFROMCAPTURE`.
-- **🤖 Multi-Provider AI Engine** — Native support for Google Gemini (Flash/Pro), OpenAI (GPT-4o / GPT-4o-mini), Anthropic Claude (Sonnet/Haiku), Ollama (Local offline models), or custom API endpoints.
-- **⌨️ Interactive Virtual Keyboard** — Beautiful QWERTY visual keyboard in settings for 1-click custom hotkey binding.
-- **🪄 S1mple Stealth Mode** — Toggleable borderless pure-text HUD mode with zero window chrome for ultimate discretion.
-- **🔒 Military-Grade DPAPI Encryption** — API keys are encrypted at rest using Windows Data Protection API (tied strictly to your Windows user identity).
-- **🎨 7 Luxury Themes** — Matrix Emerald, Midnight Obsidian, Cyberpunk Neon, Solar Amber, Nordic Frost, Crimson Dark, and Vaporwave.
-- **💼 Process Disguise** — Disguised in Windows Task Manager and Process Explorer as `Windows Desktop Window Helper Service` (`DesktopWindowHelper.exe`).
-- **📦 Single-File Standalone EXE** — Fully self-contained portable executable with zero external runtime dependencies.
+<table>
+  <tr>
+    <td width="50%">
+      <h3>🛡️ Hardware Streamproof Invisibility</h3>
+      Uses native Windows <code>SetWindowDisplayAffinity(WDA_EXCLUDEFROMCAPTURE)</code>. Completely transparent to Zoom, Discord, MS Teams, OBS Studio, and Google Meet screen captures.
+    </td>
+    <td width="50%">
+      <h3>🤖 Multi-Provider AI Engine</h3>
+      Seamlessly swap between <b>Google Gemini</b> (Flash 2.0 / 2.5), <b>OpenAI</b> (GPT-4o), <b>Anthropic Claude</b> (3.5 Sonnet), or <b>Ollama</b> local offline LLMs.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>⌨️ Interactive Virtual Keyboard</h3>
+      Visual QWERTY keyboard built directly into the settings dialog. Bind custom global hotkey combos with a single click.
+    </td>
+    <td width="50%">
+      <h3>🔒 DPAPI Hardware Encryption</h3>
+      All API keys are encrypted at rest using the Windows Data Protection API (DPAPI). Keys can only be decrypted by your specific Windows user account on your local machine.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>🪄 S1mple Stealth Mode</h3>
+      Converts the HUD into a zero-chrome, 100% transparent text overlay. Freely draggable and resizable across multiple monitors.
+    </td>
+    <td width="50%">
+      <h3>💼 Process Disguise</h3>
+      Disguised in Windows Task Manager and Process Explorer as <code>Windows Desktop Window Helper Service</code> (<code>DesktopWindowHelper.exe</code>).
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 🎮 Hotkey Reference
+## 🎮 Global Hotkey Cheat-Sheet
 
-| Action | Default Hotkey | Description |
-|---|---|---|
-| **Quick Scan** | `F9` | Single-key instant screenshot reasoning |
-| **Primary Scan** | `Ctrl + Alt + S` | Standard multi-key capture & solve |
-| **Panic Hide** | `Esc` | Instantly fades out the HUD overlay |
-| **Open Settings** | `Ctrl + Alt + O` | Opens the full Control Center |
-| **Repeat Answer** | `Ctrl + Alt + R` | Re-displays last cached AI response |
+All triggers use native Win32 `RegisterHotKey` for zero-latency background execution:
+
+| Action | Hotkey | Function |
+| :--- | :---: | :--- |
+| **Quick Screen Solve** | <kbd>F9</kbd> | Single-key instantaneous screen reasoning |
+| **Primary Full Scan** | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | Standard multi-key capture and solve |
+| **Instant Panic Hide** | <kbd>Esc</kbd> | Smoothly fades out the HUD in milliseconds |
+| **Open Control Center** | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>O</kbd> | Opens settings, themes, and keybindings |
+| **Repeat Cached Answer** | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> | Re-displays last solution with zero API latency |
 
 ---
 
-## 🏗 Building From Source
+## 🎨 Luxury HUD Themes
 
-If you want to build the standalone `.exe` yourself:
+StealthAI Buddy comes packed with 7 handcrafted visual themes:
+
+| Theme Name | Accent Color | Aesthetic & Mood |
+| :--- | :---: | :--- |
+| **Matrix Emerald** | `#10e599` 🟢 | Cyberpunk terminal glow with neon emerald highlights |
+| **Midnight Obsidian** | `#818cf8` 🟣 | Deep space dark navy with indigo luminescence |
+| **Cyberpunk Neon** | `#f43f5e` 🔴 | High-contrast neon rose with futuristic dark glass |
+| **Solar Amber** | `#f59e0b` 🟡 | Warm gold-amber accents with sleek graphite background |
+| **Nordic Frost** | `#38bdf8` 🔵 | Icy cyan glow on ultra-deep translucent obsidian |
+| **Crimson Dark** | `#ff4d4d` 🔴 | Aggressive stealth red with subtle shadow gradients |
+| **Vaporwave** | `#a855f7` 🟣 | Retro-wave purple and violet neon glassmorphism |
+
+---
+
+## 🏗 System Architecture & Workflow
+
+```mermaid
+flowchart TD
+    subgraph Capture["🖥️ Screen Layer"]
+        A[Active Screen Window] -->|Instant Snapshot| B[MSS Native Capture Engine]
+    end
+
+    subgraph Core["⚙️ StealthAI Core Controller"]
+        B --> C[Capture Optimizer & Base64 Encoder]
+        C --> D{AI Engine Gateway}
+        D -->|REST / HTTPS| E[Google Gemini API]
+        D -->|REST / HTTPS| F[OpenAI GPT-4o API]
+        D -->|REST / HTTPS| G[Anthropic Claude API]
+        D -->|Local API| H[Ollama Local Engine]
+    end
+
+    subgraph Overlay["👁️ Stealth HUD Presentation"]
+        E & F & G & H -->|Formatted Markdown / HTML| I[StealthOverlayHUD Widget]
+        I --> J[WDA_EXCLUDEFROMCAPTURE Invisibility Filter]
+        J --> K[Floating Glassmorphic Window on Display]
+    end
+```
+
+---
+
+## 📦 Standalone Binary Compilation
+
+To build your own single-file portable executable with disguised metadata:
 
 ```powershell
-# 1. Install required packages
+# 1. Clone repository & enter workspace
+git clone https://github.com/Dark-Shadow34/StealthAIBuddy.git
+cd StealthAIBuddy
+
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 2. Compile standalone disguised binary
+# 3. Build standalone EXE
 python build_exe.py
 ```
-The compiled single-file binary will be generated at:
+
+Output binary:
 `dist/DesktopWindowHelper.exe`
 
 ---
 
-## 📁 Repository Structure
+## ❓ Frequently Asked Questions
 
-```
-StealthAIBuddy/
-├── main.py                  # Entry point
-├── build_exe.py             # Standalone PyInstaller builder
-├── requirements.txt         # Dependencies
-├── docs/
-│   └── screenshots/         # Real UI assets
-└── stealth_buddy/
-    ├── app.py               # Main application orchestration & threading
-    ├── ai_engine.py         # Multi-provider AI reasoning client & auto-discovery
-    ├── overlay.py           # Streamproof stealth HUD with custom themes
-    ├── settings_gui.py      # Control Center dialog & virtual keyboard
-    ├── config.py            # DPAPI encrypted configuration manager
-    ├── capture.py           # Low-latency screen capture engine
-    ├── hotkey_listener.py   # Global Win32 hotkey filtering
-    └── system_tray.py       # Notification tray manager
-```
+<details>
+<summary><b>Does this show up when I share my screen on Zoom, Teams, or Discord?</b></summary>
+<br />
+<b>No.</b> StealthAI Buddy uses the native Windows <code>SetWindowDisplayAffinity</code> API with the <code>WDA_EXCLUDEFROMCAPTURE</code> flag. Windows automatically removes the window from all desktop and window capture pipelines at the DWM (Desktop Window Manager) level.
+</details>
+
+<details>
+<summary><b>Is the Google Gemini API really free?</b></summary>
+<br />
+<b>Yes.</b> Google AI Studio provides a free tier for Gemini 2.0 Flash and Flash-Lite models with up to 15 RPM (requests per minute) and 1,000,000 TPM (tokens per minute), which is completely free for personal use with no credit card required.
+</details>
+
+<details>
+<summary><b>Where are my API keys stored?</b></summary>
+<br />
+Your keys are encrypted using the Windows DPAPI (<code>CryptProtectData</code>) and stored locally in <code>config.json</code>. They can never be decrypted by other users or transferred to other computers.
+</details>
+
+<details>
+<summary><b>Can I change the screen position or size?</b></summary>
+<br />
+<b>Yes.</b> You can drag the HUD anywhere by holding left-click on the header, resize it by dragging the bottom-right corner, or switch to <b>S1mple Stealth Mode</b> for a pure borderless experience.
+</details>
 
 ---
 
-## 📄 License & Terms
+## 📄 License & Proprietary Rights
 
-Copyright (c) 2026 StealthAI Buddy. All Rights Reserved.  
-This software and its source code are proprietary and confidential. Unauthorized copying, reverse engineering, redistribution, or modification is strictly prohibited. See [LICENSE](LICENSE) for details.
+Copyright (c) 2026 StealthAI Buddy. **All Rights Reserved.**  
+This software, source code, and assets are proprietary and confidential. Unauthorized copying, reverse engineering, redistribution, or modification is strictly prohibited. See [LICENSE](LICENSE) for terms.
+
+<div align="center">
+<br />
+<b>⚡ StealthAI Buddy — Speed, Precision & Discretion</b>
+</div>
